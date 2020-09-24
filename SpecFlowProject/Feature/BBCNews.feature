@@ -20,6 +20,6 @@
 	 And go to “How to share with BBC news”
 	 And fill in the information on the bottom
 	 | Story       | Name | EmailAddress   | ContactNumber | Location                                |
-	 | Lorem ipsum |      | test@test.test | 11111         | 4 Privet Drive, Little Whinging, Surrey |
+	 | Lorem ipsum | Test | test@test.test |               | 4 Privet Drive, Little Whinging, Surrey |
 	 And click Submit
 	 Then the story is not sent
