@@ -1,15 +1,11 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 namespace SpecFlowProject.Pages
 {
 
     class HomePage : BasePage
     {
+        
         public HomePage(IWebDriver driver) : base(driver) { }
 
         private IWebElement NewsPageButton => this.driver.FindElement(By.XPath("//div[@id='orb-nav-links']//a[contains(text(),'News')]"));

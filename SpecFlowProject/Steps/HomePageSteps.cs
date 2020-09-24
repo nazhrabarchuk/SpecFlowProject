@@ -10,6 +10,7 @@ namespace SpecFlowProject.Steps
         public void GivenTheBBCHomePageIsOpen()
         {
             CreateDriver();
+            GetBasePage().WaitForPageLoadComplete();
         }
         [Given(@"I go to News")]
         public void GivenIGoToNews()

@@ -14,7 +14,7 @@ namespace SpecFlowProject.Steps
         [When(@"click on Entertainment & Arts tab")]
         public void WhenClickOnEntertainmentArtsTab()
         {
-           
+
             if (GetBasePage().GetSignInButton().Displayed)
             {
                 IJavaScriptExecutor executor = (IJavaScriptExecutor)GetDriver();

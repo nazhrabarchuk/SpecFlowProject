@@ -1,55 +1,50 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TechTalk.SpecFlow;
 
 namespace SpecFlowProject.Pages
 {
     class BaseTest
     {
-        private IWebDriver driver;
+     
         private const string BBC_URL = "https://www.bbc.com/";
 
         [SetUp]
         public void CreateDriver()
         {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl(BBC_URL);
+            Driver.Start();
+            Driver.MaximizeWindow();
+            Driver.Navigate(BBC_URL);
         }
 
         [TearDown]
         public void Close()
         {
-            driver.Quit();
+            Driver.Quit();
         }
 
 
         public IWebDriver GetDriver()
         {
-            return driver;
+            return Driver.Instance;
         }
 
         public BasePage GetBasePage()
         {
-            return new BasePage(driver);
+            return new BasePage(Driver.Instance);
         }
 
         public HomePage GetHomePage()
         {
-            return new HomePage(driver);
+            return new HomePage(Driver.Instance);
         }
 
         public NewsPage GetNewsPage()
         {
-            return new NewsPage(driver);
+            return new NewsPage(Driver.Instance);
         }
         public EntertainmentArtsPage GetEntertainmentArtsPage()
         {
-            return new EntertainmentArtsPage(driver);
+            return new EntertainmentArtsPage(Driver.Instance);
         }
     }
 }

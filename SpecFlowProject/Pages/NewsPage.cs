@@ -1,9 +1,5 @@
 ﻿using OpenQA.Selenium;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 namespace SpecFlowProject.Pages
 {
@@ -35,10 +31,6 @@ namespace SpecFlowProject.Pages
         private IWebElement UserConfirmServiceCheckbox => this.driver.FindElement(By.XPath("//div[@class='hearken-embed cleanslate']//p[contains(text(),'I accept the ')]/parent::div/parent::span/parent::label/input[@type='checkbox']"));
         private IWebElement SubmitButton => this.driver.FindElement(By.XPath("//div[@class='hearken-embed cleanslate']//button[contains(text(),Submit)]"));
         private IWebElement ErrorMessage => this.driver.FindElement(By.XPath("//div[@class='input-error-message']"));
-        private IWebElement ConfirmNotification => this.driver.FindElement(By.XPath("//div[@class='embed-content-container']"));
-
-
-
 
         public IWebElement GetHeadlineArticleH3()
         {
@@ -74,7 +66,6 @@ namespace SpecFlowProject.Pages
             return HowToShareBBCNewsButton;
         }
 
-
         public void Login(string userStory, string userName, string userEmail, string userNumber, string userLocation)
         {
             UserStoryTexarea.SendKeys(userStory);
@@ -86,7 +77,11 @@ namespace SpecFlowProject.Pages
             UserConfirmServiceCheckbox.Click();
         }
 
-        public void ClickSubmit() => SubmitButton.Submit();
+        public void ClickSubmit()
+        {
+            SubmitButton.Submit();
+            ImplicitWait();
+        }
 
         public bool IsErrorMessageExist() => ErrorMessage.Displayed;
     }
